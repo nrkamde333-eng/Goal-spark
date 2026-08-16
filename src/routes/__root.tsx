@@ -17,9 +17,13 @@ export function DefaultErrorComponent({ error }: { error: Error }) {
     <div className="min-h-screen flex items-center justify-center p-6 bg-background text-foreground">
       <div className="max-w-md w-full text-center space-y-4">
         <h2 className="text-xl font-bold">Something went wrong</h2>
-        <p className="text-sm text-muted-foreground">{error?.message || "An unexpected error occurred."}</p>
+        <p className="text-sm text-muted-foreground">
+          {error?.message || "An unexpected error occurred."}
+        </p>
         <div className="flex gap-2 justify-center">
-          <Button onClick={() => window.location.reload()} variant="outline">Reload</Button>
+          <Button onClick={() => window.location.reload()} variant="outline">
+            Reload
+          </Button>
           <Link to="/">
             <Button>Go Home</Button>
           </Link>

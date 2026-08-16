@@ -6,4 +6,3 @@ const router = getRouter();
 export default function App() {
   return <RouterProvider router={router} />;
 }
-

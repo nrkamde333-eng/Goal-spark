@@ -40,7 +40,8 @@ const SAMPLE_ROADMAPS = [
     category: "Study & Career",
     badgeColor: "bg-primary/20 text-primary border-primary/30",
     icon: "💻",
-    description: "Structured curriculum covering data structures, algorithmic patterns, distributed system design, and behavioral frameworks.",
+    description:
+      "Structured curriculum covering data structures, algorithmic patterns, distributed system design, and behavioral frameworks.",
     months: [
       {
         title: "Month 1: Core Fundamentals & Patterns",
@@ -85,7 +86,8 @@ const SAMPLE_ROADMAPS = [
     category: "Engineering & Business",
     badgeColor: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
     icon: "🚀",
-    description: "End-to-end entrepreneurial sprint from problem discovery interviews to MVP deployment, Stripe billing, and Product Hunt debut.",
+    description:
+      "End-to-end entrepreneurial sprint from problem discovery interviews to MVP deployment, Stripe billing, and Product Hunt debut.",
     months: [
       {
         title: "Month 1: Validation & MVP Build",
@@ -120,7 +122,8 @@ const SAMPLE_ROADMAPS = [
     category: "Health & Endurance",
     badgeColor: "bg-amber-500/20 text-amber-400 border-amber-500/30",
     icon: "🏃",
-    description: "Periodized aerobic stamina development, tempo lactate thresholds, nutrition strategies, and peaking for race day.",
+    description:
+      "Periodized aerobic stamina development, tempo lactate thresholds, nutrition strategies, and peaking for race day.",
     months: [
       {
         title: "Phase 1: Aerobic Base & Mobility",
@@ -165,7 +168,8 @@ const SAMPLE_ROADMAPS = [
     category: "Mindset & Habits",
     badgeColor: "bg-purple-500/20 text-purple-400 border-purple-500/30",
     icon: "🧘",
-    description: "Reset dopamine pathways, establish non-negotiable morning rituals, and reclaim 3+ hours of focused deep work every single day.",
+    description:
+      "Reset dopamine pathways, establish non-negotiable morning rituals, and reclaim 3+ hours of focused deep work every single day.",
     months: [
       {
         title: "Full 30-Day Protocol",
@@ -187,25 +191,53 @@ const SAMPLE_ROADMAPS = [
 
 export default function LandingPage() {
   const [selectedRoadmap, setSelectedRoadmap] = useState(SAMPLE_ROADMAPS[0]);
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("yearly");
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
+    "yearly",
+  );
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Interactive mockup task states
   const [mockTasks, setMockTasks] = useState([
-    { id: 1, title: "Solve Binary Search on 2D Matrix (LeetCode 74)", time: "07:00 - 08:30", tag: "Deep Work", done: true },
-    { id: 2, title: "Review Distributed Cache Architecture (Redis vs Memcached)", time: "10:00 - 11:30", tag: "System Design", done: true },
-    { id: 3, title: "Conduct 45m Pramp Mock Interview with Peer", time: "14:00 - 15:00", tag: "Live Mock", done: false },
-    { id: 4, title: "Zone 2 Aerobic Run (5km) + Post-Run Stretch", time: "17:30 - 18:30", tag: "Health", done: false },
+    {
+      id: 1,
+      title: "Solve Binary Search on 2D Matrix (LeetCode 74)",
+      time: "07:00 - 08:30",
+      tag: "Deep Work",
+      done: true,
+    },
+    {
+      id: 2,
+      title: "Review Distributed Cache Architecture (Redis vs Memcached)",
+      time: "10:00 - 11:30",
+      tag: "System Design",
+      done: true,
+    },
+    {
+      id: 3,
+      title: "Conduct 45m Pramp Mock Interview with Peer",
+      time: "14:00 - 15:00",
+      tag: "Live Mock",
+      done: false,
+    },
+    {
+      id: 4,
+      title: "Zone 2 Aerobic Run (5km) + Post-Run Stretch",
+      time: "17:30 - 18:30",
+      tag: "Health",
+      done: false,
+    },
   ]);
 
   const toggleMockTask = (id: number) => {
     setMockTasks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+      prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t)),
     );
   };
 
   const completedCount = mockTasks.filter((t) => t.done).length;
-  const mockProgressPercent = Math.round((completedCount / mockTasks.length) * 100);
+  const mockProgressPercent = Math.round(
+    (completedCount / mockTasks.length) * 100,
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/30">
@@ -217,7 +249,7 @@ export default function LandingPage() {
               <Sparkles className="size-5 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-xl tracking-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+              <span className="font-display font-extrabold text-xl tracking-tight bg-linear-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
                 GoalPilot
               </span>
             </div>
@@ -225,19 +257,34 @@ export default function LandingPage() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <a href="#features" className="hover:text-foreground transition-colors">
+            <a
+              href="#features"
+              className="hover:text-foreground transition-colors"
+            >
               Features
             </a>
-            <a href="#interactive-demo" className="hover:text-foreground transition-colors">
+            <a
+              href="#interactive-demo"
+              className="hover:text-foreground transition-colors"
+            >
               Interactive Planner
             </a>
-            <a href="#how-it-works" className="hover:text-foreground transition-colors">
+            <a
+              href="#how-it-works"
+              className="hover:text-foreground transition-colors"
+            >
               How It Works
             </a>
-            <a href="#comparison" className="hover:text-foreground transition-colors">
+            <a
+              href="#comparison"
+              className="hover:text-foreground transition-colors"
+            >
               Why GoalPilot
             </a>
-            <a href="#pricing" className="hover:text-foreground transition-colors">
+            <a
+              href="#pricing"
+              className="hover:text-foreground transition-colors"
+            >
               Pricing
             </a>
             <a href="#faq" className="hover:text-foreground transition-colors">
@@ -248,12 +295,19 @@ export default function LandingPage() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <Link to="/auth">
-              <Button variant="ghost" size="sm" className="font-medium text-muted-foreground hover:text-foreground">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="font-medium text-muted-foreground hover:text-foreground"
+              >
                 Sign In
               </Button>
             </Link>
             <Link to="/app">
-              <Button size="sm" className="rounded-full gradient-brand text-white font-semibold shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/35 transition">
+              <Button
+                size="sm"
+                className="rounded-full gradient-brand text-white font-semibold shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/35 transition"
+              >
                 Open Workspace <ArrowRight className="size-3.5 ml-1.5" />
               </Button>
             </Link>
@@ -263,35 +317,47 @@ export default function LandingPage() {
 
       {/* 2. HERO SECTION */}
       <section className="relative pt-16 sm:pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-[650px] rounded-full bg-primary/15 blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/3 right-10 size-[350px] rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 size-162.5 rounded-full bg-primary/15 blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/3 right-10 size-87.5 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
 
         <div className="max-w-5xl mx-auto text-center space-y-6 relative">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-xs font-semibold text-primary shadow-xs">
-            <Sparkles className="size-3.5" /> Powered by Gemini Intelligence · 90-Day Milestone Deconstructor
+            <Sparkles className="size-3.5" /> Powered by Gemini Intelligence ·
+            90-Day Milestone Deconstructor
           </div>
 
           <h1 className="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08]">
             Turn Any Ambitious Goal into{" "}
-            <span className="bg-gradient-to-r from-primary via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary via-purple-400 to-emerald-400 bg-clip-text text-transparent">
               Daily Actionable Flow
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Stop letting ambitious goals get lost in chaotic to-do lists. GoalPilot automatically breaks high-level aspirations into structured monthly milestones, weekly sprints, and auto-scheduled daily focus blocks.
+            Stop letting ambitious goals get lost in chaotic to-do lists.
+            GoalPilot automatically breaks high-level aspirations into
+            structured monthly milestones, weekly sprints, and auto-scheduled
+            daily focus blocks.
           </p>
 
           {/* Primary Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link to="/app" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto rounded-full gradient-brand text-white font-bold px-9 h-12 text-base shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto rounded-full gradient-brand text-white font-bold px-9 h-12 text-base shadow-xl shadow-primary/30 hover:scale-[1.02] transition-transform"
+              >
                 Launch Live Workspace <ArrowRight className="size-4 ml-2" />
               </Button>
             </Link>
             <a href="#interactive-demo" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full border-border/80 hover:bg-muted/40 font-medium h-12 text-base">
-                <Play className="size-4 mr-2 text-primary" /> Test Interactive Demo
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto rounded-full border-border/80 hover:bg-muted/40 font-medium h-12 text-base"
+              >
+                <Play className="size-4 mr-2 text-primary" /> Test Interactive
+                Demo
               </Button>
             </a>
           </div>
@@ -299,13 +365,16 @@ export default function LandingPage() {
           {/* Trust proof points */}
           <div className="pt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground font-medium">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-emerald-500" /> Free demo with full features
+              <CheckCircle2 className="size-4 text-emerald-500" /> Free demo
+              with full features
             </span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="size-4 text-primary" /> 100% Offline client-side persistence
+              <ShieldCheck className="size-4 text-primary" /> 100% Offline
+              client-side persistence
             </span>
             <span className="flex items-center gap-1.5">
-              <Zap className="size-4 text-amber-500" /> Instant zero-latency roadmap generation
+              <Zap className="size-4 text-amber-500" /> Instant zero-latency
+              roadmap generation
             </span>
           </div>
 
@@ -318,7 +387,9 @@ export default function LandingPage() {
                   <div className="size-3 rounded-full bg-red-500/80" />
                   <div className="size-3 rounded-full bg-amber-500/80" />
                   <div className="size-3 rounded-full bg-emerald-500/80" />
-                  <span className="text-xs font-mono text-muted-foreground ml-2 font-semibold">GoalPilot Workspace — Live Simulation</span>
+                  <span className="text-xs font-mono text-muted-foreground ml-2 font-semibold">
+                    GoalPilot Workspace — Live Simulation
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span className="inline-block size-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -332,19 +403,28 @@ export default function LandingPage() {
                 <div className="p-4 sm:p-5 rounded-xl border border-primary/30 bg-primary/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-primary text-white text-[11px] font-semibold">Active 90-Day Sprint</Badge>
-                      <span className="text-xs text-muted-foreground font-mono">Target: 65 Days Remaining</span>
+                      <Badge className="bg-primary text-white text-[11px] font-semibold">
+                        Active 90-Day Sprint
+                      </Badge>
+                      <span className="text-xs text-muted-foreground font-mono">
+                        Target: 65 Days Remaining
+                      </span>
                     </div>
                     <h3 className="font-display font-bold text-lg text-foreground">
                       Prepare for Google Senior SWE Interview (90 Days)
                     </h3>
                     <p className="text-xs text-muted-foreground">
-                      Current Milestone: Month 2 — Binary Trees, Dynamic Programming & Graph BFS/DFS
+                      Current Milestone: Month 2 — Binary Trees, Dynamic
+                      Programming & Graph BFS/DFS
                     </p>
                   </div>
                   <div className="sm:text-right shrink-0 space-y-1">
-                    <div className="text-2xl font-bold font-mono text-primary">{mockProgressPercent}%</div>
-                    <p className="text-[11px] text-muted-foreground font-medium">Daily Focus Velocity</p>
+                    <div className="text-2xl font-bold font-mono text-primary">
+                      {mockProgressPercent}%
+                    </div>
+                    <p className="text-[11px] text-muted-foreground font-medium">
+                      Daily Focus Velocity
+                    </p>
                   </div>
                 </div>
 
@@ -354,10 +434,12 @@ export default function LandingPage() {
                   <div className="md:col-span-2 space-y-3">
                     <div className="flex items-center justify-between">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-                        <Clock className="size-3.5 text-primary" /> Today's Scheduled Time-Blocks
+                        <Clock className="size-3.5 text-primary" /> Today's
+                        Scheduled Time-Blocks
                       </h4>
                       <span className="text-xs text-muted-foreground font-mono">
-                        {completedCount} of {mockTasks.length} Completed (Click to Toggle)
+                        {completedCount} of {mockTasks.length} Completed (Click
+                        to Toggle)
                       </span>
                     </div>
 
@@ -380,16 +462,25 @@ export default function LandingPage() {
                                   : "border-border bg-background"
                               }`}
                             >
-                              {t.done && <Check className="size-3.5 stroke-[3]" />}
+                              {t.done && (
+                                <Check className="size-3.5 stroke-3" />
+                              )}
                             </div>
                             <div className="min-w-0">
-                              <p className={`text-xs font-semibold truncate ${t.done ? "line-through opacity-75" : "text-foreground"}`}>
+                              <p
+                                className={`text-xs font-semibold truncate ${t.done ? "line-through opacity-75" : "text-foreground"}`}
+                              >
                                 {t.title}
                               </p>
-                              <span className="text-[10px] font-mono text-muted-foreground">{t.time}</span>
+                              <span className="text-[10px] font-mono text-muted-foreground">
+                                {t.time}
+                              </span>
                             </div>
                           </div>
-                          <Badge variant="outline" className="text-[10px] shrink-0 font-medium">
+                          <Badge
+                            variant="outline"
+                            className="text-[10px] shrink-0 font-medium"
+                          >
                             {t.tag}
                           </Badge>
                         </div>
@@ -401,7 +492,8 @@ export default function LandingPage() {
                   <div className="space-y-4 flex flex-col justify-between">
                     <div className="space-y-3">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-                        <Flame className="size-3.5 text-amber-500" /> Active Streaks
+                        <Flame className="size-3.5 text-amber-500" /> Active
+                        Streaks
                       </h4>
 
                       <div className="p-3 rounded-xl border border-border/70 bg-card/60 space-y-2.5">
@@ -409,19 +501,25 @@ export default function LandingPage() {
                           <span className="font-semibold flex items-center gap-1.5">
                             <span>💻</span> Daily 90m DSA Practice
                           </span>
-                          <span className="font-mono font-bold text-amber-500">8d streak</span>
+                          <span className="font-mono font-bold text-amber-500">
+                            8d streak
+                          </span>
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-semibold flex items-center gap-1.5">
                             <span>🏃</span> Morning 5k Aerobic Run
                           </span>
-                          <span className="font-mono font-bold text-amber-500">12d streak</span>
+                          <span className="font-mono font-bold text-amber-500">
+                            12d streak
+                          </span>
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-semibold flex items-center gap-1.5">
                             <span>🧘</span> Evening Mindful Journal
                           </span>
-                          <span className="font-mono font-bold text-amber-500">21d streak</span>
+                          <span className="font-mono font-bold text-amber-500">
+                            21d streak
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -432,7 +530,9 @@ export default function LandingPage() {
                         <Sparkles className="size-3" /> Copilot Recommendation
                       </div>
                       <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        "Great pace on sliding window problems today. Tomorrow's dynamic programming session is scheduled for 19:00 with zero conflicts."
+                        "Great pace on sliding window problems today. Tomorrow's
+                        dynamic programming session is scheduled for 19:00 with
+                        zero conflicts."
                       </p>
                     </div>
                   </div>
@@ -444,14 +544,21 @@ export default function LandingPage() {
       </section>
 
       {/* 4. INTERACTIVE ROADMAP EXPLORER (TRY BEFORE YOU SIGN UP) */}
-      <section id="interactive-demo" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <section
+        id="interactive-demo"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full"
+      >
         <div className="text-center space-y-3 mb-12">
-          <Badge className="bg-primary/20 text-primary border-primary/30">Interactive Roadmap Deconstructor</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            Interactive Roadmap Deconstructor
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             See How GoalPilot Deconstructs Any Ambition
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Select a real-world scenario below to see how our AI decomposes high-level goals into multi-tier progressive milestones and non-repeating daily focus sprints.
+            Select a real-world scenario below to see how our AI decomposes
+            high-level goals into multi-tier progressive milestones and
+            non-repeating daily focus sprints.
           </p>
         </div>
 
@@ -479,15 +586,25 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-2xl">{selectedRoadmap.icon}</span>
-                <h3 className="font-display font-bold text-xl text-foreground">{selectedRoadmap.title}</h3>
-                <Badge className={selectedRoadmap.badgeColor}>{selectedRoadmap.timeframe}</Badge>
+                <h3 className="font-display font-bold text-xl text-foreground">
+                  {selectedRoadmap.title}
+                </h3>
+                <Badge className={selectedRoadmap.badgeColor}>
+                  {selectedRoadmap.timeframe}
+                </Badge>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground max-w-3xl">{selectedRoadmap.description}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-3xl">
+                {selectedRoadmap.description}
+              </p>
             </div>
 
             <Link to="/app/planner">
-              <Button size="sm" className="rounded-full gradient-brand text-white font-semibold shrink-0 shadow-md shadow-primary/20">
-                Plan Custom Goal with AI <ArrowRight className="size-3.5 ml-1.5" />
+              <Button
+                size="sm"
+                className="rounded-full gradient-brand text-white font-semibold shrink-0 shadow-md shadow-primary/20"
+              >
+                Plan Custom Goal with AI{" "}
+                <ArrowRight className="size-3.5 ml-1.5" />
               </Button>
             </Link>
           </div>
@@ -495,15 +612,27 @@ export default function LandingPage() {
           {/* Monthly Milestone Tiers */}
           <div className="grid md:grid-cols-3 gap-5">
             {selectedRoadmap.months.map((m, idx) => (
-              <div key={idx} className="p-5 rounded-xl border border-border/60 bg-muted/20 space-y-3">
+              <div
+                key={idx}
+                className="p-5 rounded-xl border border-border/60 bg-muted/20 space-y-3"
+              >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-primary font-mono uppercase tracking-wider">{m.tag}</span>
-                  <Badge variant="outline" className="text-[10px]">Tier {idx + 1}</Badge>
+                  <span className="text-xs font-bold text-primary font-mono uppercase tracking-wider">
+                    {m.tag}
+                  </span>
+                  <Badge variant="outline" className="text-[10px]">
+                    Tier {idx + 1}
+                  </Badge>
                 </div>
-                <h4 className="font-display font-bold text-sm text-foreground">{m.title}</h4>
+                <h4 className="font-display font-bold text-sm text-foreground">
+                  {m.title}
+                </h4>
                 <ul className="space-y-2 pt-1">
                   {m.items.map((item, iIdx) => (
-                    <li key={iIdx} className="text-xs text-muted-foreground flex items-start gap-2">
+                    <li
+                      key={iIdx}
+                      className="text-xs text-muted-foreground flex items-start gap-2"
+                    >
                       <Check className="size-3.5 text-emerald-500 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
@@ -520,18 +649,26 @@ export default function LandingPage() {
                 <Target className="size-4" />
               </div>
               <div>
-                <h5 className="text-xs font-bold text-foreground">Auto-Generated Daily Routines & Sprints</h5>
+                <h5 className="text-xs font-bold text-foreground">
+                  Auto-Generated Daily Routines & Sprints
+                </h5>
                 <p className="text-[11px] text-muted-foreground">
-                  Synced directly into your calendar without overlapping with existing commitments.
+                  Synced directly into your calendar without overlapping with
+                  existing commitments.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
               {selectedRoadmap.dailyHabits.map((h, hIdx) => (
-                <div key={hIdx} className="px-3 py-1.5 rounded-lg bg-card border border-border/80 text-xs font-medium flex items-center gap-2">
+                <div
+                  key={hIdx}
+                  className="px-3 py-1.5 rounded-lg bg-card border border-border/80 text-xs font-medium flex items-center gap-2"
+                >
                   <span className="text-foreground">{h.name}</span>
-                  <span className="text-[10px] font-mono text-muted-foreground font-semibold">({h.time})</span>
+                  <span className="text-[10px] font-mono text-muted-foreground font-semibold">
+                    ({h.time})
+                  </span>
                 </div>
               ))}
             </div>
@@ -540,14 +677,20 @@ export default function LandingPage() {
       </section>
 
       {/* 5. 6-PILLAR FEATURE BENTO GRID */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <section
+        id="features"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full"
+      >
         <div className="text-center space-y-3 mb-14">
-          <Badge className="bg-primary/20 text-primary border-primary/30">Architecture & Features</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            Architecture & Features
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             Engineered for Unrelenting Execution
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            A cohesive productivity operating system replacing disjointed note apps, reminder lists, and generic calendars.
+            A cohesive productivity operating system replacing disjointed note
+            apps, reminder lists, and generic calendars.
           </p>
         </div>
 
@@ -603,14 +746,20 @@ export default function LandingPage() {
       </section>
 
       {/* 6. HOW IT WORKS (3-STEP JOURNEY) */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-border/60">
+      <section
+        id="how-it-works"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-border/60"
+      >
         <div className="text-center space-y-3 mb-14">
-          <Badge className="bg-primary/20 text-primary border-primary/30">The 3-Step Flow</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            The 3-Step Flow
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             From Vague Wish to Completed Milestone
           </h2>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            How GoalPilot bridges the gap between high-level ambition and daily execution.
+            How GoalPilot bridges the gap between high-level ambition and daily
+            execution.
           </p>
         </div>
 
@@ -619,9 +768,13 @@ export default function LandingPage() {
             <div className="size-12 rounded-xl gradient-brand text-white font-display font-extrabold text-lg grid place-items-center shadow-md shadow-primary/25">
               1
             </div>
-            <h3 className="font-display font-bold text-lg text-foreground">1. Declare Your North Star</h3>
+            <h3 className="font-display font-bold text-lg text-foreground">
+              1. Declare Your North Star
+            </h3>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Describe what you want to accomplish—from passing a technical certification to running a marathon or shipping an app—with your target timeframe.
+              Describe what you want to accomplish—from passing a technical
+              certification to running a marathon or shipping an app—with your
+              target timeframe.
             </p>
           </div>
 
@@ -629,9 +782,13 @@ export default function LandingPage() {
             <div className="size-12 rounded-xl gradient-brand text-white font-display font-extrabold text-lg grid place-items-center shadow-md shadow-primary/25">
               2
             </div>
-            <h3 className="font-display font-bold text-lg text-foreground">2. Deconstruct & Schedule</h3>
+            <h3 className="font-display font-bold text-lg text-foreground">
+              2. Deconstruct & Schedule
+            </h3>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              GoalPilot structures the goal into progressive 30-day stages, weekly topics, and concrete daily focus blocks, automatically mapped into your calendar.
+              GoalPilot structures the goal into progressive 30-day stages,
+              weekly topics, and concrete daily focus blocks, automatically
+              mapped into your calendar.
             </p>
           </div>
 
@@ -639,23 +796,33 @@ export default function LandingPage() {
             <div className="size-12 rounded-xl gradient-brand text-white font-display font-extrabold text-lg grid place-items-center shadow-md shadow-primary/25">
               3
             </div>
-            <h3 className="font-display font-bold text-lg text-foreground">3. Execute in Pure Flow</h3>
+            <h3 className="font-display font-bold text-lg text-foreground">
+              3. Execute in Pure Flow
+            </h3>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Open your dashboard every morning with zero decision fatigue. Know exactly what to work on, check off tasks, and build momentum with streak tracking.
+              Open your dashboard every morning with zero decision fatigue. Know
+              exactly what to work on, check off tasks, and build momentum with
+              streak tracking.
             </p>
           </div>
         </div>
       </section>
 
       {/* 7. COMPARISON TABLE: TRADITIONAL TO-DO APPS VS GOALPILOT */}
-      <section id="comparison" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+      <section
+        id="comparison"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full"
+      >
         <div className="text-center space-y-3 mb-14">
-          <Badge className="bg-primary/20 text-primary border-primary/30">Direct Comparison</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            Direct Comparison
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             Why Standard To-Do Apps Fail for Ambitious Goals
           </h2>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            Traditional checklist apps only manage short-term chores. GoalPilot is designed for long-range achievement.
+            Traditional checklist apps only manage short-term chores. GoalPilot
+            is designed for long-range achievement.
           </p>
         </div>
 
@@ -664,45 +831,76 @@ export default function LandingPage() {
             <table className="w-full text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-border/60 bg-muted/40">
-                  <th className="p-4 sm:p-5 font-semibold text-muted-foreground">Capabilities & Architecture</th>
-                  <th className="p-4 sm:p-5 font-semibold text-muted-foreground">Generic To-Do Lists (Notion, Todoist)</th>
-                  <th className="p-4 sm:p-5 font-bold text-primary bg-primary/10">GoalPilot System</th>
+                  <th className="p-4 sm:p-5 font-semibold text-muted-foreground">
+                    Capabilities & Architecture
+                  </th>
+                  <th className="p-4 sm:p-5 font-semibold text-muted-foreground">
+                    Generic To-Do Lists (Notion, Todoist)
+                  </th>
+                  <th className="p-4 sm:p-5 font-bold text-primary bg-primary/10">
+                    GoalPilot System
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">
                 <tr>
-                  <td className="p-4 sm:p-5 font-semibold text-foreground">Goal Deconstruction</td>
-                  <td className="p-4 sm:p-5 text-muted-foreground">Manual guesswork; user must research every sub-step</td>
+                  <td className="p-4 sm:p-5 font-semibold text-foreground">
+                    Goal Deconstruction
+                  </td>
+                  <td className="p-4 sm:p-5 text-muted-foreground">
+                    Manual guesswork; user must research every sub-step
+                  </td>
                   <td className="p-4 sm:p-5 text-emerald-400 font-semibold bg-primary/5 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-500" /> AI Progressive Sprints & Milestone Deconstruction
+                    <Check className="size-4 text-emerald-500" /> AI Progressive
+                    Sprints & Milestone Deconstruction
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-semibold text-foreground">Time-Blocking & Calendar</td>
-                  <td className="p-4 sm:p-5 text-muted-foreground">Separate disconnected app or manual Google Calendar entry</td>
+                  <td className="p-4 sm:p-5 font-semibold text-foreground">
+                    Time-Blocking & Calendar
+                  </td>
+                  <td className="p-4 sm:p-5 text-muted-foreground">
+                    Separate disconnected app or manual Google Calendar entry
+                  </td>
                   <td className="p-4 sm:p-5 text-emerald-400 font-semibold bg-primary/5 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-500" /> Integrated Smart Time-Blocking with Conflict Avoidance
+                    <Check className="size-4 text-emerald-500" /> Integrated
+                    Smart Time-Blocking with Conflict Avoidance
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-semibold text-foreground">Handling Missed Days</td>
-                  <td className="p-4 sm:p-5 text-muted-foreground">Overdue red badge anxiety; tasks pile up endlessly</td>
+                  <td className="p-4 sm:p-5 font-semibold text-foreground">
+                    Handling Missed Days
+                  </td>
+                  <td className="p-4 sm:p-5 text-muted-foreground">
+                    Overdue red badge anxiety; tasks pile up endlessly
+                  </td>
                   <td className="p-4 sm:p-5 text-emerald-400 font-semibold bg-primary/5 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-500" /> Intelligent 1-Tap Sched-Rebalancing with Copilot
+                    <Check className="size-4 text-emerald-500" /> Intelligent
+                    1-Tap Sched-Rebalancing with Copilot
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-semibold text-foreground">Habit & Routine Synergy</td>
-                  <td className="p-4 sm:p-5 text-muted-foreground">Requires dedicated second habit tracker subscription</td>
+                  <td className="p-4 sm:p-5 font-semibold text-foreground">
+                    Habit & Routine Synergy
+                  </td>
+                  <td className="p-4 sm:p-5 text-muted-foreground">
+                    Requires dedicated second habit tracker subscription
+                  </td>
                   <td className="p-4 sm:p-5 text-emerald-400 font-semibold bg-primary/5 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-500" /> Unified Streaks, Heatmaps & Habit Check-ins
+                    <Check className="size-4 text-emerald-500" /> Unified
+                    Streaks, Heatmaps & Habit Check-ins
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 sm:p-5 font-semibold text-foreground">Data Privacy & Offline</td>
-                  <td className="p-4 sm:p-5 text-muted-foreground">Heavy cloud lock-in with slow page loading</td>
+                  <td className="p-4 sm:p-5 font-semibold text-foreground">
+                    Data Privacy & Offline
+                  </td>
+                  <td className="p-4 sm:p-5 text-muted-foreground">
+                    Heavy cloud lock-in with slow page loading
+                  </td>
                   <td className="p-4 sm:p-5 text-emerald-400 font-semibold bg-primary/5 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-500" /> Instant Local Storage + Zero Latency SPA
+                    <Check className="size-4 text-emerald-500" /> Instant Local
+                    Storage + Zero Latency SPA
                   </td>
                 </tr>
               </tbody>
@@ -712,14 +910,20 @@ export default function LandingPage() {
       </section>
 
       {/* 8. TESTIMONIALS & SOCIAL PROOF */}
-      <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <section
+        id="testimonials"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full"
+      >
         <div className="text-center space-y-3 mb-14">
-          <Badge className="bg-primary/20 text-primary border-primary/30">User Outcomes</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            User Outcomes
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             Built for Serious Achievers
           </h2>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            See how high-agency professionals use GoalPilot to conquer ambitious 90-day targets.
+            See how high-agency professionals use GoalPilot to conquer ambitious
+            90-day targets.
           </p>
         </div>
 
@@ -752,23 +956,33 @@ export default function LandingPage() {
       </section>
 
       {/* 9. PRICING SECTION */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full border-t border-border/60">
+      <section
+        id="pricing"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full border-t border-border/60"
+      >
         <div className="text-center space-y-3 mb-12">
-          <Badge className="bg-primary/20 text-primary border-primary/30">Transparent Plans</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            Transparent Plans
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             Invest in Your Execution Velocity
           </h2>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            Start completely free with unlimited demo workspaces, or upgrade for full AI Copilot sync.
+            Start completely free with unlimited demo workspaces, or upgrade for
+            full AI Copilot sync.
           </p>
 
           {/* Monthly / Yearly Toggle */}
           <div className="flex items-center justify-center gap-3 pt-4">
-            <span className={`text-xs font-semibold ${billingCycle === "monthly" ? "text-foreground" : "text-muted-foreground"}`}>
+            <span
+              className={`text-xs font-semibold ${billingCycle === "monthly" ? "text-foreground" : "text-muted-foreground"}`}
+            >
               Monthly
             </span>
             <button
-              onClick={() => setBillingCycle((b) => (b === "monthly" ? "yearly" : "monthly"))}
+              onClick={() =>
+                setBillingCycle((b) => (b === "monthly" ? "yearly" : "monthly"))
+              }
               className="w-12 h-6 rounded-full bg-muted p-0.5 border border-border transition-colors relative"
             >
               <div
@@ -777,8 +991,13 @@ export default function LandingPage() {
                 }`}
               />
             </button>
-            <span className={`text-xs font-semibold flex items-center gap-1.5 ${billingCycle === "yearly" ? "text-foreground" : "text-muted-foreground"}`}>
-              Yearly <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">Save 25%</Badge>
+            <span
+              className={`text-xs font-semibold flex items-center gap-1.5 ${billingCycle === "yearly" ? "text-foreground" : "text-muted-foreground"}`}
+            >
+              Yearly{" "}
+              <Badge className="bg-emerald-500/20 text-emerald-400 text-[10px]">
+                Save 25%
+              </Badge>
             </span>
           </div>
         </div>
@@ -787,29 +1006,42 @@ export default function LandingPage() {
           {/* Free Tier */}
           <div className="p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/60 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <Badge variant="outline" className="text-xs">Starter Tier</Badge>
+              <Badge variant="outline" className="text-xs">
+                Starter Tier
+              </Badge>
               <div>
-                <div className="text-3xl font-extrabold font-display text-foreground">$0</div>
-                <p className="text-xs text-muted-foreground mt-1">Free forever · No credit card required</p>
+                <div className="text-3xl font-extrabold font-display text-foreground">
+                  $0
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Free forever · No credit card required
+                </p>
               </div>
               <ul className="space-y-2.5 text-xs text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Unlimited goals & milestones
+                  <Check className="size-4 text-emerald-500" /> Unlimited goals
+                  & milestones
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Smart time-block calendar
+                  <Check className="size-4 text-emerald-500" /> Smart time-block
+                  calendar
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Daily habit streaks & logs
+                  <Check className="size-4 text-emerald-500" /> Daily habit
+                  streaks & logs
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> 100% Client-side local persistence
+                  <Check className="size-4 text-emerald-500" /> 100% Client-side
+                  local persistence
                 </li>
               </ul>
             </div>
 
             <Link to="/app">
-              <Button variant="outline" className="w-full rounded-xl font-semibold">
+              <Button
+                variant="outline"
+                className="w-full rounded-xl font-semibold"
+              >
                 Get Started Free
               </Button>
             </Link>
@@ -826,25 +1058,35 @@ export default function LandingPage() {
               <div>
                 <div className="text-3xl font-extrabold font-display text-foreground">
                   {billingCycle === "yearly" ? "$9" : "$12"}
-                  <span className="text-xs font-normal text-muted-foreground">/ month</span>
+                  <span className="text-xs font-normal text-muted-foreground">
+                    / month
+                  </span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Billed {billingCycle === "yearly" ? "annually ($108/yr)" : "monthly"}</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Billed{" "}
+                  {billingCycle === "yearly" ? "annually ($108/yr)" : "monthly"}
+                </p>
               </div>
               <ul className="space-y-2.5 text-xs text-foreground">
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Everything in Starter
+                  <Check className="size-4 text-emerald-500" /> Everything in
+                  Starter
                 </li>
                 <li className="flex items-center gap-2 font-semibold text-primary">
-                  <Sparkles className="size-4 text-primary" /> Unlimited Gemini AI Roadmap Sprints
+                  <Sparkles className="size-4 text-primary" /> Unlimited Gemini
+                  AI Roadmap Sprints
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Real-time intelligent auto-rescheduling
+                  <Check className="size-4 text-emerald-500" /> Real-time
+                  intelligent auto-rescheduling
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Deep productivity velocity analytics
+                  <Check className="size-4 text-emerald-500" /> Deep
+                  productivity velocity analytics
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Category-based deep work tags
+                  <Check className="size-4 text-emerald-500" /> Category-based
+                  deep work tags
                 </li>
               </ul>
             </div>
@@ -859,29 +1101,42 @@ export default function LandingPage() {
           {/* Lifetime Tier */}
           <div className="p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/60 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <Badge variant="outline" className="text-xs">Lifetime Access</Badge>
+              <Badge variant="outline" className="text-xs">
+                Lifetime Access
+              </Badge>
               <div>
-                <div className="text-3xl font-extrabold font-display text-foreground">$199</div>
-                <p className="text-xs text-muted-foreground mt-1">One-time payment · Lifetime updates</p>
+                <div className="text-3xl font-extrabold font-display text-foreground">
+                  $199
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  One-time payment · Lifetime updates
+                </p>
               </div>
               <ul className="space-y-2.5 text-xs text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Lifetime access to all Pro features
+                  <Check className="size-4 text-emerald-500" /> Lifetime access
+                  to all Pro features
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Priority access to future AI models
+                  <Check className="size-4 text-emerald-500" /> Priority access
+                  to future AI models
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Dedicated concierge onboarding
+                  <Check className="size-4 text-emerald-500" /> Dedicated
+                  concierge onboarding
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="size-4 text-emerald-500" /> Exclusive founder community badge
+                  <Check className="size-4 text-emerald-500" /> Exclusive
+                  founder community badge
                 </li>
               </ul>
             </div>
 
             <Link to="/app">
-              <Button variant="outline" className="w-full rounded-xl font-semibold">
+              <Button
+                variant="outline"
+                className="w-full rounded-xl font-semibold"
+              >
                 Get Lifetime License
               </Button>
             </Link>
@@ -890,14 +1145,20 @@ export default function LandingPage() {
       </section>
 
       {/* 10. FREQUENTLY ASKED QUESTIONS ACCORDION */}
-      <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+      <section
+        id="faq"
+        className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full"
+      >
         <div className="text-center space-y-3 mb-14">
-          <Badge className="bg-primary/20 text-primary border-primary/30">FAQ</Badge>
+          <Badge className="bg-primary/20 text-primary border-primary/30">
+            FAQ
+          </Badge>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-sm text-muted-foreground">
-            Everything you need to know about GoalPilot architecture and workflows.
+            Everything you need to know about GoalPilot architecture and
+            workflows.
           </p>
         </div>
 
@@ -935,7 +1196,9 @@ export default function LandingPage() {
                   className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-semibold text-sm text-foreground hover:bg-muted/30 transition-colors"
                 >
                   <span>{item.q}</span>
-                  <ChevronDown className={`size-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180 text-primary" : ""}`} />
+                  <ChevronDown
+                    className={`size-4 text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180 text-primary" : ""}`}
+                  />
                 </button>
                 {isOpen && (
                   <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-border/40">
@@ -962,17 +1225,26 @@ export default function LandingPage() {
           </h2>
 
           <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto leading-relaxed">
-            Experience the productivity workspace that turns high-level vision into automatic, uninterrupted daily execution.
+            Experience the productivity workspace that turns high-level vision
+            into automatic, uninterrupted daily execution.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link to="/app" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto rounded-full bg-white text-foreground hover:bg-white/90 font-bold px-9 shadow-xl text-base">
-                Launch Workspace Now <ArrowRight className="size-4 ml-2 text-primary" />
+              <Button
+                size="lg"
+                className="w-full sm:w-auto rounded-full bg-white text-foreground hover:bg-white/90 font-bold px-9 shadow-xl text-base"
+              >
+                Launch Workspace Now{" "}
+                <ArrowRight className="size-4 ml-2 text-primary" />
               </Button>
             </Link>
             <Link to="/auth" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full border-white/40 text-white hover:bg-white/10 font-semibold text-base">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto rounded-full border-white/40 text-white hover:bg-white/10 font-semibold text-base"
+              >
                 Create Account
               </Button>
             </Link>
@@ -988,12 +1260,14 @@ export default function LandingPage() {
               <div className="size-8 rounded-xl gradient-brand grid place-items-center text-white shadow-md shadow-primary/20">
                 <Sparkles className="size-4" />
               </div>
-              <span className="font-display font-extrabold text-lg tracking-tight bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              <span className="font-display font-extrabold text-lg tracking-tight bg-linear-to-r from-foreground to-primary bg-clip-text text-transparent">
                 GoalPilot
               </span>
             </div>
             <p className="text-muted-foreground text-xs leading-relaxed max-w-sm">
-              The intelligent goal deconstruction and auto-scheduled productivity operating system. Transform any long-range ambition into daily actionable flow.
+              The intelligent goal deconstruction and auto-scheduled
+              productivity operating system. Transform any long-range ambition
+              into daily actionable flow.
             </p>
             <div className="flex items-center gap-2 text-[11px] text-muted-foreground font-mono">
               <span className="inline-block size-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -1002,44 +1276,115 @@ export default function LandingPage() {
           </div>
 
           <div>
-            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">Product</h5>
+            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">
+              Product
+            </h5>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/app/planner" className="hover:text-foreground">AI Roadmap Planner</Link></li>
-              <li><Link to="/app/calendar" className="hover:text-foreground">Smart Calendar</Link></li>
-              <li><Link to="/app/tasks" className="hover:text-foreground">Velocity Tasks</Link></li>
-              <li><Link to="/app/habits" className="hover:text-foreground">Habit Streaks</Link></li>
-              <li><Link to="/app/analytics" className="hover:text-foreground">Productivity Analytics</Link></li>
+              <li>
+                <Link to="/app/planner" className="hover:text-foreground">
+                  AI Roadmap Planner
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/calendar" className="hover:text-foreground">
+                  Smart Calendar
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/tasks" className="hover:text-foreground">
+                  Velocity Tasks
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/habits" className="hover:text-foreground">
+                  Habit Streaks
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/analytics" className="hover:text-foreground">
+                  Productivity Analytics
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">Resources</h5>
+            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">
+              Resources
+            </h5>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#interactive-demo" className="hover:text-foreground">Interactive Demo</a></li>
-              <li><a href="#how-it-works" className="hover:text-foreground">3-Step Framework</a></li>
-              <li><a href="#comparison" className="hover:text-foreground">Product Comparison</a></li>
-              <li><a href="#pricing" className="hover:text-foreground">Pricing Tiers</a></li>
-              <li><a href="#faq" className="hover:text-foreground">FAQ</a></li>
+              <li>
+                <a href="#interactive-demo" className="hover:text-foreground">
+                  Interactive Demo
+                </a>
+              </li>
+              <li>
+                <a href="#how-it-works" className="hover:text-foreground">
+                  3-Step Framework
+                </a>
+              </li>
+              <li>
+                <a href="#comparison" className="hover:text-foreground">
+                  Product Comparison
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="hover:text-foreground">
+                  Pricing Tiers
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-foreground">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">Workspace</h5>
+            <h5 className="font-semibold text-foreground mb-3 uppercase tracking-wider text-[11px]">
+              Workspace
+            </h5>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/auth" className="hover:text-foreground">Sign In / Register</Link></li>
-              <li><Link to="/app" className="hover:text-foreground">Demo Workspace</Link></li>
-              <li><Link to="/app/settings" className="hover:text-foreground">Preferences</Link></li>
-              <li><span className="text-muted-foreground/60">Privacy & Terms</span></li>
+              <li>
+                <Link to="/auth" className="hover:text-foreground">
+                  Sign In / Register
+                </Link>
+              </li>
+              <li>
+                <Link to="/app" className="hover:text-foreground">
+                  Demo Workspace
+                </Link>
+              </li>
+              <li>
+                <Link to="/app/settings" className="hover:text-foreground">
+                  Preferences
+                </Link>
+              </li>
+              <li>
+                <span className="text-muted-foreground/60">
+                  Privacy & Terms
+                </span>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto border-t border-border/40 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} GoalPilot Workspace. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} GoalPilot Workspace. All rights
+            reserved.
+          </p>
           <div className="flex items-center gap-6">
-            <span className="hover:text-foreground cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-foreground cursor-pointer">Terms of Service</span>
-            <span className="hover:text-foreground cursor-pointer">Security</span>
+            <span className="hover:text-foreground cursor-pointer">
+              Privacy Policy
+            </span>
+            <span className="hover:text-foreground cursor-pointer">
+              Terms of Service
+            </span>
+            <span className="hover:text-foreground cursor-pointer">
+              Security
+            </span>
           </div>
         </div>
       </footer>
@@ -1049,12 +1394,20 @@ export default function LandingPage() {
 
 function FeatureCard({ icon: Icon, title, desc, gradient, border }: any) {
   return (
-    <div className={`p-6 rounded-2xl border ${border} bg-card/60 backdrop-blur-md space-y-3 transition-all hover:translate-y-[-2px] hover:shadow-xl`}>
-      <div className={`size-11 rounded-xl bg-gradient-to-br ${gradient} grid place-items-center text-primary border border-primary/20`}>
+    <div
+      className={`p-6 rounded-2xl border ${border} bg-card/60 backdrop-blur-md space-y-3 transition-all hover:-translate-y-0.5 hover:shadow-xl`}
+    >
+      <div
+        className={`size-11 rounded-xl bg-linear-to-br ${gradient} grid place-items-center text-primary border border-primary/20`}
+      >
         <Icon className="size-5" />
       </div>
-      <h3 className="font-display font-bold text-base text-foreground">{title}</h3>
-      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{desc}</p>
+      <h3 className="font-display font-bold text-base text-foreground">
+        {title}
+      </h3>
+      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+        {desc}
+      </p>
     </div>
   );
 }
@@ -1080,7 +1433,10 @@ function TestimonialCard({ name, role, avatar, stars, goal, quote }: any) {
           </div>
         </div>
 
-        <Badge variant="outline" className="text-[10px] bg-primary/5 text-primary border-primary/20">
+        <Badge
+          variant="outline"
+          className="text-[10px] bg-primary/5 text-primary border-primary/20"
+        >
           🎯 {goal}
         </Badge>
 
