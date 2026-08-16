@@ -60,8 +60,7 @@ export function Dashboard() {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Editorial Napoleon Bonaparte Quote Banner at the Top */}
-      <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-gradient-to-r from-primary/10 via-card to-brand-2/10 p-5 sm:p-6 shadow-xs">
-        <div className="absolute -top-10 -right-10 size-36 rounded-full bg-primary/10 blur-2xl pointer-events-none" />
+      <div className="relative rounded-2xl border border-border/80 bg-gradient-to-r from-primary/10 via-card to-brand-2/10 p-5 sm:p-6 shadow-xs">
         <div className="relative flex items-start gap-3 sm:gap-4">
           <div className="rounded-xl bg-primary/15 p-2.5 text-primary shrink-0 mt-0.5 shadow-xs border border-primary/20">
             <Quote className="size-5 sm:size-6" />
@@ -180,15 +179,23 @@ export function Dashboard() {
           </CardHeader>
           <CardContent>
             <Link to="/app/analytics" className="block group">
-              <div className="relative aspect-square w-40 mx-auto grid place-items-center cursor-pointer transition-transform group-hover:scale-105">
-                <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
-                  <circle cx="50" cy="50" r="42" strokeWidth="10" fill="none" className="stroke-muted" />
-                  <circle cx="50" cy="50" r="42" strokeWidth="10" fill="none" strokeLinecap="round" className="stroke-primary"
-                    strokeDasharray={`${(productivity / 100) * 264} 264`} />
+              <div className="relative w-36 h-36 mx-auto flex items-center justify-center cursor-pointer">
+                <svg width="144" height="144" viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
+                  <circle cx="50" cy="50" r="42" strokeWidth="8" fill="none" className="stroke-muted" />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="42"
+                    strokeWidth="8"
+                    fill="none"
+                    strokeLinecap="round"
+                    className="stroke-primary"
+                    strokeDasharray={`${(productivity / 100) * 264} 264`}
+                  />
                 </svg>
-                <div className="relative text-center">
-                  <div className="font-display font-extrabold text-4xl">{productivity}</div>
-                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-primary transition flex items-center justify-center gap-1">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <div className="font-display font-extrabold text-3xl">{productivity}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-primary transition flex items-center justify-center gap-0.5">
                     Today <ArrowUpRight className="size-3" />
                   </div>
                 </div>
@@ -248,10 +255,9 @@ export function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="border relative overflow-hidden gradient-brand text-white">
-          <div className="absolute inset-0 grid-bg opacity-20" />
-          <CardHeader className="pb-3 relative"><CardTitle className="text-base flex items-center gap-2"><Sparkles className="size-4" /> AI Suggestion</CardTitle></CardHeader>
-          <CardContent className="relative space-y-3">
+        <Card className="border relative rounded-xl gradient-brand text-white">
+          <CardHeader className="pb-3"><CardTitle className="text-base flex items-center gap-2"><Sparkles className="size-4" /> AI Suggestion</CardTitle></CardHeader>
+          <CardContent className="space-y-3">
             <p className="text-sm opacity-95">You're ahead of schedule on <b>Learn Python</b>. Perfect day for a stretch task — try tackling async patterns tonight.</p>
             <Link to="/app/planner">
               <Button size="sm" variant="secondary" className="rounded-full bg-white text-primary hover:bg-white/90">Open AI Planner</Button>
@@ -291,19 +297,19 @@ export function Dashboard() {
                     navigate({ to: "/app/analytics" });
                   }
                 }}
-                className={`group rounded-xl border p-3 flex items-center gap-3 cursor-pointer transition-all duration-200 ${
+                className={`group rounded-xl border p-3 flex items-center gap-3 cursor-pointer select-none ${
                   done
-                    ? "bg-emerald-500/5 border-emerald-500/30 hover:border-emerald-500/50 hover:bg-emerald-500/10"
-                    : "hover:bg-muted/40 hover:border-primary/40 hover:shadow-xs"
+                    ? "bg-emerald-500/10 border-emerald-500/30"
+                    : "bg-card hover:bg-muted/40 hover:border-primary/40"
                 }`}
               >
-                <div className="text-2xl group-hover:scale-110 transition-transform select-none">{h.emoji}</div>
+                <div className="text-2xl shrink-0">{h.emoji}</div>
                 <div className="flex-1 min-w-0">
-                  <div className={`text-sm font-medium truncate group-hover:text-primary transition ${done ? "text-foreground font-semibold" : ""}`}>
+                  <div className={`text-sm font-medium truncate ${done ? "text-foreground font-semibold" : ""}`}>
                     {h.name}
                   </div>
                   <div className="text-xs text-muted-foreground flex items-center gap-1">
-                    <Flame className="size-3 text-warning" /> {h.streak}d streak
+                    <Flame className="size-3 text-amber-500" /> {h.streak}d streak
                   </div>
                 </div>
                 {/* 1-Click Habit Completion Toggle */}
@@ -318,10 +324,10 @@ export function Dashboard() {
                       toast.info(`Unmarked "${h.name}" for today`);
                     }
                   }}
-                  className={`size-6 rounded-full border-2 flex items-center justify-center transition-all duration-150 shrink-0 ${
+                  className={`size-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
                     done
-                      ? "bg-success border-success text-white scale-105 shadow-xs"
-                      : "border-muted-foreground/40 hover:border-primary hover:bg-primary/10 hover:scale-110"
+                      ? "bg-emerald-600 border-emerald-600 text-white"
+                      : "border-muted-foreground/40 hover:border-primary hover:bg-primary/10"
                   }`}
                   title={done ? "Completed! Click to undo" : "Click to mark as done today"}
                   aria-label={done ? `Mark ${h.name} as incomplete` : `Mark ${h.name} as done today`}
@@ -329,7 +335,7 @@ export function Dashboard() {
                   {done ? (
                     <Check className="size-3.5 stroke-[3]" />
                   ) : (
-                    <div className="size-2 rounded-full bg-transparent group-hover:bg-primary/30 transition" />
+                    <div className="size-2 rounded-full bg-transparent" />
                   )}
                 </button>
               </div>

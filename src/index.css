@@ -132,10 +132,8 @@
 }
 
 @utility glass {
-  background: color-mix(in oklab, var(--card) 60%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 @utility gradient-brand {

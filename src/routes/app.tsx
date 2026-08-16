@@ -83,9 +83,9 @@ export function AppLayout() {
   );
 
   return (
-    <div className="min-h-screen flex bg-background selection:bg-primary/30">
+    <div className="min-h-screen flex bg-background overflow-x-hidden selection:bg-primary/30">
       {/* Sidebar */}
-      <aside className="hidden md:flex w-64 shrink-0 flex-col border-r bg-sidebar/95 backdrop-blur-md text-sidebar-foreground sticky top-0 h-screen z-30">
+      <aside className="hidden md:flex w-64 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground sticky top-0 h-screen z-30">
         <Link to="/" className="flex items-center gap-2.5 px-5 h-16 border-b border-border/50">
           <div className="size-9 rounded-xl gradient-brand grid place-items-center shadow-lg shadow-primary/30 ring-1 ring-white/20">
             <Sparkles className="size-5 text-white" />
@@ -148,7 +148,7 @@ export function AppLayout() {
 
       {/* Main */}
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="sticky top-0 z-40 h-16 border-b border-border/60 glass flex items-center justify-between px-4 md:px-6 gap-3">
+        <header className="sticky top-0 z-40 h-16 border-b bg-card flex items-center justify-between px-4 md:px-6 gap-3">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
