@@ -10,6 +10,7 @@
     }
   },
   "postCreateCommand": "npm install",
+  "postStartCommand": "npm install",
   "customizations": {
     "vscode": {
       "settings": {

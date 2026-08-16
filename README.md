@@ -26,11 +26,19 @@ GEMINI_API_KEY=your_actual_key_here
 ```
 *(If no API key is provided, the application runs seamlessly in Standby Mode with high-fidelity local plan generators).*
 
-### 3. Start Development Server
+### 3. Start Development Server (One-Command)
 ```bash
+npm install
 npm run dev
 ```
-The server will boot at `http://localhost:3000` and Codespaces will prompt you with an **Open in Browser** preview notification.
+*(Or simply run `./start.sh` which automatically installs dependencies and starts the server).*
+
+The server will boot at `http://localhost:3000`.
+
+### 4. Important: Set Port to Public
+1. Click the **Ports** tab at the bottom in Codespaces.
+2. Right click on **3000** $\rightarrow$ **Port Visibility** $\rightarrow$ **Public**.
+3. Click the open icon to preview.
 
 ---
 
